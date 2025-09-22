@@ -208,6 +208,14 @@ void update(){
 }
 
 void setup(){
+#if defined(__linux__) || defined(__APPLE__)
+    std:string objDir = "../src/asset/";
+    std::string shaderDir = "../src/shader/";
+#else 
+    std::string objDir = "..\\src\\asset\\";
+    std::string shaderDir = "..\\src\\Shader\\";
+#endif
+
     camera1.position = glm::vec3(0.0f, 1.0f, 7.0f);
     camera1.lookat = glm::vec3(0.0f);
     camera1.up = glm::vec3(0.0f, 1.0f, 0.0f);
