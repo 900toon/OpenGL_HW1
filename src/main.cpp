@@ -168,6 +168,16 @@ void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
     if (key ==GLFW_KEY_S && action == GLFW_PRESS){
         camera1.position += glm::vec3(0.0f, 0.0f, 0.5f);
     }
+        // --- NEW FEATURE: Vertical movement ---
+    if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
+        // Increase the Y position when UP is pressed
+        camera1.position.y += 0.5f;
+    }
+    if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
+        // Decrease the Y position when DOWN is pressed
+        camera1.position.y -= 0.5f;
+    }
+    // ------------------------------------
     if (action = GLFW_PRESS){
         std::cout << "camera1 positoin:" << camera1.position.x << "\t"<<camera1.position.y << "\t"<<camera1.position.z<< "\t" << "camera1 rotation y: "<<camera1.rotationY <<std::endl;
         std::cout << "cameraModel: "<< cameraModel[3].x <<"\t"<<cameraModel[3].y <<"\t"<<cameraModel[3].z << "\n"<<std::endl;
@@ -208,14 +218,6 @@ void update(){
 }
 
 void setup(){
-#if defined(__linux__) || defined(__APPLE__)
-    std:string objDir = "../src/asset/";
-    std::string shaderDir = "../src/shader/";
-#else 
-    std::string objDir = "..\\src\\asset\\";
-    std::string shaderDir = "..\\src\\Shader\\";
-#endif
-
     camera1.position = glm::vec3(0.0f, 1.0f, 7.0f);
     camera1.lookat = glm::vec3(0.0f);
     camera1.up = glm::vec3(0.0f, 1.0f, 0.0f);

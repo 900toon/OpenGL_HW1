@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.10.0)
 project(hellow_world VERSION 1.0.0)
 
 find_package(OpenGL REQUIRED)
